@@ -2,7 +2,7 @@ import os
 import csv
 from phonemizer import phonemize
 import speech_recognition as sr
-from text import _clean_text
+from CloneXTTSv2.vits.text import _clean_text 
 
 
 def transcribe_audio_files_in_directory(
@@ -29,7 +29,7 @@ def transcribe_audio_files_in_directory(
                         cleaned_transcription = _clean_text(
                             transcription, ["english_cleaners2"]
                         )
-                        # phonemize the cleaned transcription
+                        # phonemize
                         phonemized_transcription = phonemize(
                             cleaned_transcription, language="en-us"
                         )
@@ -38,7 +38,7 @@ def transcribe_audio_files_in_directory(
                         print(
                             f"Google Web Speech API could not understand audio for file: {filename}. Moving it to badAudio directory."
                         )
-                        # move bad audio badAudio directory
+                        # move badAudio directory
                         os.rename(
                             file_path, os.path.join(bad_audio_directory, filename)
                         )
@@ -51,7 +51,7 @@ def transcribe_audio_files_in_directory(
 
 
 transcribe_audio_files_in_directory(
-    "/home/eleven/segmenter/output",
-    "/home/eleven/segmenter/txtfile/train_data.txt",
-    "/home/eleven/segmenter/badaudio/badaudio",
+    "/home/eleven/segmenter/output", #path to all wav files
+    "/home/eleven/segmenter/txtfile/train_data.txt", #path to where you want the txt to go
+    "/home/eleven/segmenter/badaudio/badaudio", # path to put the bad wav files
 )
