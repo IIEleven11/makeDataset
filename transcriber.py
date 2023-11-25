@@ -51,7 +51,7 @@ def transcribe_audio_files_in_directory(
 
 
 transcribe_audio_files_in_directory(
-    "/home/eleven/segmenter/output", #path to all wav files
-    "/home/eleven/segmenter/txtfile/train_data.txt", #path to where you want the txt to go
+    "/home/eleven/segmenter/output", # path to all wav files
+    "/home/eleven/segmenter/txtfile/train_data.txt", # path to where you want the txt to go
     "/home/eleven/segmenter/badaudio/badaudio", # path to put the bad wav files
 )
